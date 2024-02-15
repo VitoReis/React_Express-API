@@ -1,0 +1,161 @@
+.mainContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#121212, #212b46);
+    text-align: center;
+}
+
+.top{
+    display: flex;
+    justify-content: center;
+}
+
+.back {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.back:hover {
+    transform: scale(1.3);
+}
+
+.title {
+    font-size: 45px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+}
+
+.selection {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection button{
+    margin: 5px;
+    width: 200px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0;
+    border-radius: 8px;
+    color: white;
+    outline: 0;
+    font-size: 20px;
+    transition: 0.5s;
+}
+
+.selection button:hover{
+    transform: scale(1.1);
+}
+
+.add, .update {
+    color: white;
+    border-radius: 8px;
+}
+
+.addInput, .updateInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.addInput input, .updateInput input {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 2px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+    border: 0;
+    font-size: 20px;
+    color: white;
+    outline: 0;
+}
+
+.addBtn, .updateBtn {
+    color: white;
+    font-size: 20px;
+    margin-top: 8px;
+    padding: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px;
+    border-radius: 20px;
+    display: flex;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.addBtn:hover, .updateBtn:hover {
+    transform: scale(1.3);
+}
+
+.searchSection, .deleteSection {
+    color: white;
+}
+
+.searchInput, .deleteInput {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin: 34px 0;
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.searchInput input, .deleteInput input {
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    outline: 0;
+    margin-right: 8px;
+}
+
+.searchInput input::placeholder, .deleteInput input::placeholder {
+    color: #f1f1f1;
+}
+
+.searchBtn, .deleteBtn {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.searchBtn:hover, .deleteBtn:hover {
+    transform: scale(1.3);
+}
+
+.searchResult {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.searchResult h2{
+    margin: 16px 0;
+    font-size: 39px;
+}
+
+.searchResult p {
+    margin-bottom: 16px;
+    font-weight: bold;
+}
