@@ -95,6 +95,10 @@ function App() {
     }
   }
 
+  function Button({ children, value }){
+    return <button onClick={() => setOption(value)}>{ children }</button>
+  }
+
   return (
     <div className="mainContainer">
       <div className='top'>
@@ -115,10 +119,10 @@ function App() {
         {option === '0' && (
           <div className='selection'>
             <h1>Escolha uma das opções</h1>
-            <button className="addShow" onClick={() => {setOption('1')}}>Adicionar contato</button>
-            <button className="searchShow" onClick={() => {setOption('2')}}>Buscar contato</button>
-            <button className="updateShow" onClick={() => {setOption('3')}}>Atualizar contato</button>
-            <button className="deleteShow" onClick={() => {setOption('4')}}>Deletar contato</button>
+            <Button value={'1'}>Adicionar contato</Button>
+            <Button value={'2'}>Buscar contato</Button>
+            <Button value={'3'}>Atualizar contato</Button>
+            <Button value={'4'}>Deletar contato</Button>
           </div>
         )}
         {option === '1' && (
