@@ -1,0 +1,12 @@
+.mainContainer {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#121212, #212b46);
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+}

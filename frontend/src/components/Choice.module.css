@@ -1,0 +1,23 @@
+.Choice {
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+.Choice button {
+    color: white;
+    font-size: 20px;
+    width: 250px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 0;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.Choice button:hover {
+    transform: scale(1.1);
+}

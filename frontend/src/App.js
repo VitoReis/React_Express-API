@@ -1,7 +1,14 @@
 import { useState } from 'react'
-import { IoMdAdd, IoMdSearch, IoMdRefresh, IoMdTrash, IoMdArrowBack} from "react-icons/io";
-import './styles.css'
 import axios from "axios"
+import './App.css'
+// Modules
+import Choice from './components/Choice'
+import Form from './components/Form';
+import Search from './components/Search';
+import Result from './components/Result';
+import Head from './components/Head';
+// Icons
+import { IoMdAdd, IoMdSearch, IoMdRefresh, IoMdTrash, IoMdArrowBack} from "react-icons/io";
 
 function App() {
 
@@ -95,93 +102,94 @@ function App() {
     }
   }
 
-  function Button({ children, value }){
-    return <button onClick={() => setOption(value)}>{ children }</button>
-  }
-
   return (
     <div className="mainContainer">
-      <div className='top'>
-        {option !== '0' && (
-          <button className="back" onClick={() => {
-            setOption('0')
-            setName('')
-            setEmail('')
-            setPhone('')
-            setAddress('')
-            setContact('')
-          }}><IoMdArrowBack size={25} color="white" /></button>
-        )}
-        <h1 className="title">Minha agenda de contatos</h1>
-      </div>
+      <section>
+        <Head 
+          title="Minha agenda de contatos"
+          choice={option}
+          option={setOption} 
+          name={setName} 
+          email={setEmail} 
+          phone={setPhone} 
+          address={setAddress} 
+          contact={setContact}
+          icon={ <IoMdArrowBack size={25} color="white" />}
+        />
+      </section>
 
-      <div className='container'>
+      <section className='container'>
         {option === '0' && (
-          <div className='selection'>
-            <h1>Escolha uma das opções</h1>
-            <Button value={'1'}>Adicionar contato</Button>
-            <Button value={'2'}>Buscar contato</Button>
-            <Button value={'3'}>Atualizar contato</Button>
-            <Button value={'4'}>Deletar contato</Button>
-          </div>
+          <Choice 
+            t1="Adicionar contato" 
+            v1='1' 
+            t2="Buscar contato" 
+            v2='2' 
+            t3="Atualizar contato" 
+            v3='3' 
+            t4="Deletar contato" 
+            v4='4' 
+            action={setOption}
+          />
         )}
         {option === '1' && (
-          <section className='add'>
-            <h1>Adicionar novo contato</h1>
-            <div className='addInput'>
-              <input type="text" placeholder="Nome" value={name} onChange={(e) => setName(e.target.value)} />
-              <input type="text" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-              <input type="text" placeholder="Telefone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-              <input type="text" placeholder="Endereço" value={address} onChange={(e) => setAddress(e.target.value)} />
-              <button className="addBtn" onClick={handleAdd}><IoMdAdd size={25} color="white" /></button>
-            </div>
-          </section>
+          <Form 
+            title="Adicionar novo contato" 
+            v1={name} s1={setName} 
+            v2={email} s2={setEmail} 
+            v3={phone} s3={setPhone} 
+            v4={address} s4={setAddress} 
+            icon={<IoMdAdd size={25} color="white" />} 
+            action={handleAdd} 
+          />
         )}
+        
         {option === '2' && (
-          <section className='search'>
-            <section className='searchSection'>
-              <h1>Buscar contato</h1>
-              <div className="searchInput">
-                <input type="text" placeholder="Digite um nome..." value={name} onChange={(e) => setName(e.target.value)} />
-                <button className="searchBtn" onClick={handleSearch}><IoMdSearch size={25} color="white" /></button>
-              </div>
-            </section>
-
+          <>
+            <Search 
+              title="Buscar contato" 
+              type="text" 
+              placeholder="Digite um nome..." 
+              value={name} 
+              state={setName} 
+              icon={<IoMdSearch size={25} color="white" />} 
+              action={handleSearch} 
+            />
             {Object.keys(contact).length > 0 && (
-              <section className="searchResult">
-                <p className="name">Nome: {contact.name}</p>
-                <p className="email">Email: {contact.email}</p>
-                <p className="phone">Telefone: {contact.phone}</p>
-                <p className="adress">Endereço: {contact.address}</p>
-              </section>
+              <Result 
+                name={contact.name} 
+                email={contact.email} 
+                phone={contact.phone} 
+                address={contact.address} 
+              />
             )}
-          </section>
+          </>
         )}
         
         {option === '3' && (
-        <section className='update'>
-          <h1>Atualizar contato</h1>
-          <div className='updateInput'>
-            <input type="text" placeholder="Digite um nome" value={name} onChange={(e) => setName(e.target.value)} />
-            <input type="text" placeholder="Digite o novo email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="text" placeholder="Digite o novo telefone" value={phone} onChange={(e) => setPhone(e.target.value)} />
-            <input type="text" placeholder="Digite o novo endereço" value={address} onChange={(e) => setAddress(e.target.value)} />
-            <button className="updateBtn" onClick={handleUpdate}><IoMdRefresh size={25} color="white" /></button>
-          </div>
-        </section>
+          <Form 
+            title="Atualizar contato" 
+            v1={name} s1={setName} 
+            v2={email} s2={setEmail} 
+            v3={phone} s3={setPhone} 
+            v4={address} s4={setAddress} 
+            icon={<IoMdRefresh size={25} color="white" />} 
+            action={handleUpdate} 
+          />
         )}
+        
         {option === '4' && (
-          <section className='delete'>
-            <section className='deleteSection'>
-              <h1>Deletar contato</h1>
-              <div className='deleteInput'>
-                <input type="text" placeholder="Digite um nome..." value={name} onChange={(e) => setName(e.target.value)} />
-                <button className="deleteBtn" onClick={handleDelete}><IoMdTrash size={25} color="white" /></button>
-              </div>
-            </section>
-          </section>
+          <Search 
+            title="Deletar contato" 
+            type="text" 
+            placeholder="Digite um nome..." 
+            value={name} 
+            state={setName} 
+            icon={<IoMdTrash size={25} color="white" />} 
+            action={handleDelete} 
+          />
         )}
-        </div>
+      </section>
     </div>
   );
 }

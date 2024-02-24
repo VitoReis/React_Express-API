@@ -1,0 +1,33 @@
+.Search {
+    color: white;
+}
+
+.Field {
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+}
+
+.Field input {
+    align-items: center;
+    background-color: transparent;
+    padding: 15px;
+    margin: 2px 0;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    outline: 0;
+}
+
+.Search button {
+    margin-top: 8px;
+    margin-right: 5px;
+    background-color: transparent;
+    border: 0;
+    transition: 0.2s;
+}
+
+.Search button:hover {
+    transform: scale(1.3);
+}
