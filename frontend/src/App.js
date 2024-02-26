@@ -145,7 +145,7 @@ function App() {
         )}
         
         {option === '2' && (
-          <>
+          <div className='SearchContainer'>
             <Search 
               title="Buscar contato" 
               type="text" 
@@ -163,7 +163,7 @@ function App() {
                 address={contact.address} 
               />
             )}
-          </>
+          </div>
         )}
         
         {option === '3' && (

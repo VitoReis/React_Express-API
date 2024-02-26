@@ -7,3 +7,8 @@
 .App {
   text-align: center;
 }
+
+.SearchContainer {
+  display: flex;
+  flex-direction: column;
+}
